@@ -1,1 +1,2 @@
 "This is a rebase feature." 
+"Adding another line for rebase." 
