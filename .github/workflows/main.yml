@@ -12,3 +12,14 @@ jobs:
       # Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
+
+      # Step 2: Update index.html
+      - name: Update index.html
+        run: |
+          # Check if the GitHub actor is MuneefAzwad
+          if [ "${{ github.actor }}" == "MuneefAzwad" ]; then
+            # Run the following CLI command to update index.html.
+            sed -i '/<\/body>/i <p>Updated by ${{ github.actor }} on "$(date)"<\/p>' index.html
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
